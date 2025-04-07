@@ -1,0 +1,57 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+header img.profile-pic {
+    width: 150px;
+    border-radius: 50%; /* Makes it a circle */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.project-section {
+    padding: 2em 0;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1em;
+}
+
+.project-grid .project {
+    border: 1px solid #ddd;
+    padding: 1em;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.project-grid .project img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5em;
+}
