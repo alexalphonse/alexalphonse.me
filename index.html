@@ -3,48 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - DevOps & VFX Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Alex Alphonse | VFX Artist & DevOps Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;600&display=swap');
+        
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #00cec9;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            scroll-behavior: smooth;
+        }
+        
+        .tech-font {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(108, 92, 231, 0.5);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(0, 206, 201, 0.8);
+            }
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0,  0px); }
+            50%  { transform: translate(0, 15px); }
+            100%   { transform: translate(0, -0px); }   
+        }
+        
+        .section-divider {
+            height: 100px;
+            background: linear-gradient(180deg, rgba(45,52,54,0) 0%, rgba(108,92,231,0.3) 50%, rgba(45,52,54,0) 100%);
+        }
+        
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .terminal {
+            background-color: #011627;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        
+        .terminal-header {
+            background-color: #1a2a3a;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 8px 15px;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        
+        .terminal-content {
+            padding: 15px;
+            overflow: hidden;
+        }
+        
+        .command {
+            color: #7fdbca;
+        }
+        
+        .comment {
+            color: #637777;
+        }
+        
+        .output {
+            color: #d6deeb;
+        }
+        
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        <h1>Your Name</h1>
-        <p>DevOps Engineer & VFX Artist</p>
-        <img src="images/your-profile-image.jpg" alt="Your Profile Picture" class="profile-pic">
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#devops" id="devops-link">DevOps Projects</a></li>
-            <li><a href="#vfx" id="vfx-link">VFX Work</a></li>
-            <li><a href="#about">About Me</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">ALEX ALPHONSE</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2 rounded-md text-gray-400 hover:text-white focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
     </nav>
 
-    <section id="devops" class="project-section">
-        <h2>DevOps Projects</h2>
-        <div class="project-grid">
-            <!-- DevOps Projects will be added here dynamically or through HTML -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden fixed w-full z-40 bg-gray-900 bg-opacity-95 backdrop-filter backdrop-blur-lg pt-16">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Home</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">About</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Skills</a>
+            <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Projects</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-90"></div>
+            <div id="particles-js" class="absolute inset-0"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
+            <div class="flex flex-col items-center">
+                <div class="relative mb-8">
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-indigo-500 overflow-hidden glow">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-3 -right-3 bg-indigo-600 rounded-full p-2">
+                        <i class="fas fa-check text-white text-lg"></i>
+                    </div>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="gradient-text">Alex Alphonse</span>
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl mb-6">
+                    <span class="tech-font">VFX Artist</span> 
+                    <span class="mx-4 text-gray-400">|</span> 
+                    <span class="tech-font">DevOps Engineer</span>
+                </h2>
+                
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mb-8">
+                    Blending creative visual effects with cutting-edge cloud infrastructure to deliver stunning digital experiences.
+                </p>
+                
+                <div class="flex space-x-4">
+                    <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-indigo-600 to-teal-500 text-white font-semibold rounded-full hover:opacity-90 transition duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-indigo-500 text-white font-semibold rounded-full hover:bg-indigo-900 hover:bg-opacity-30 transition duration-300 transform hover:scale-105">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-white">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
         </div>
     </section>
 
-    <section id="vfx" class="project-section">
-        <h2>VFX Work</h2>
-        <div class="project-grid">
-            <!-- VFX Projects will be added here dynamically or through HTML -->
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="gradient-text">About Me</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    A unique blend of artistic vision and technical expertise
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative">
+                    <div class="terminal floating">
+                        <div class="terminal-header flex items-center">
+                            <div class="terminal-button bg-red-500"></div>
+                            <div class="terminal-button bg-yellow-500"></div>
+                            <div class="terminal-button bg-green-500"></div>
+                            <span class="text-gray-300 text-sm ml-2">bash</span>
+                        </div>
+                        <div class="terminal-content">
+                            <p class="text-sm mb-2"><span class="command">$</span> whoami</p>
+                            <p class="text-sm mb-4 output">Alex Carter - VFX Artist & DevOps Engineer</p>
+                            
+                            <p class="text-sm mb-2"><span class="command">$</span> cat about_me.txt</p>
+                            <p class="text-sm mb-2 output">I'm a hybrid professional with 8+ years in visual effects and 5+ years in DevOps engineering.</p>
+                            <p class="text-sm mb-2 output">My journey began in the world of film and animation, where I developed a passion for creating stunning visual experiences.</p>
+                            <p class="text-sm mb-4 output">As I progressed in my career, I became fascinated with the technical infrastructure that powers these creative projects.</p>
+                            
+                            <p class="text-sm mb-2"><span class="command">$</span> <span class="cursor">_</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -z-10 w-full h-full bg-indigo-900 rounded-lg opacity-20 top-4 left-4"></div>
+                </div>
+                
+                <div class="lg:w-1/2 mt-10 lg:mt-0">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">My Dual Expertise</h3>
+                    
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full bg-indigo-900 bg-opacity-50 mr-4">
+                                <i class="fas fa-film text-indigo-400 text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">VFX Artist</h4>
+                        </div>
+                        <p class="text-gray-300">
+                            Specializing in 3D modeling, compositing, and motion graphics. I've worked on feature films, commercials, and game cinematics, bringing imaginative worlds to life through cutting-edge visual effects.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="p-3 rounded-full bg-teal-900 bg-opacity-50 mr-4">
+                                <i class="fas fa-server text-teal-400 text-xl"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">DevOps Engineer</h4>
+                        </div>
+                        <p class="text-gray-300">
+                            Building robust CI/CD pipelines, cloud infrastructure, and automation systems. I help creative teams scale their workflows efficiently while maintaining security and reliability.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <div class="px-4 py-2 bg-gray-800 rounded-full flex items-center">
+                            <i class="fas fa-award text-yellow-400 mr-2"></i>
+                            <span>8+ Years Experience</span>
+                        </div>
+                        <div class="px-4 py-2 bg-gray-800 rounded-full flex items-center">
+                            <i class="fas fa-project-diagram text-purple-400 mr-2"></i>
+                            <span>50+ Projects</span>
+                        </div>
+                        <div class="px-4 py-2 bg-gray-800 rounded-full flex items-center">
+                            <i class="fas fa-users text-blue-400 mr-2"></i>
+                            <span>20+ Clients</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="project-section">
-        <h2>About Me</h2>
-        <p>Write a brief introduction about yourself, your skills, and interests.</p>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="gradient-text">My Skills</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Combining artistic creativity with technical precision
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- VFX Skills -->
+                <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                    <div class="flex items-center mb-8">
+                        <div class="p-3 rounded-full bg-indigo-900 bg-opacity-50 mr-4">
+                            <i class="fas fa-film text-indigo-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold gradient-text">VFX & Animation</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">3D Modeling</span>
+                                <span class="font-medium text-indigo-400">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-indigo-500 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">Compositing</span>
+                                <span class="font-medium text-indigo-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-indigo-500 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">Motion Graphics</span>
+                                <span class="font-medium text-indigo-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-indigo-500 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">Visual Effects</span>
+                                <span class="font-medium text-indigo-400">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-indigo-500 h-2.5 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-300 mb-4">Tools & Software</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-unity text-gray-300 mr-2"></i>
+                                <span>Maya</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fas fa-cube text-gray-300 mr-2"></i>
+                                <span>Blender</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fas fa-photo-film text-gray-300 mr-2"></i>
+                                <span>After Effects</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fas fa-paintbrush text-gray-300 mr-2"></i>
+                                <span>Nuke</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fas fa-fire text-gray-300 mr-2"></i>
+                                <span>Houdini</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fas fa-video text-gray-300 mr-2"></i>
+                                <span>Premiere Pro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps Skills -->
+                <div class="bg-gray-900 rounded-xl p-8 shadow-xl">
+                    <div class="flex items-center mb-8">
+                        <div class="p-3 rounded-full bg-teal-900 bg-opacity-50 mr-4">
+                            <i class="fas fa-server text-teal-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold gradient-text">DevOps & Cloud</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">CI/CD Pipelines</span>
+                                <span class="font-medium text-teal-400">94%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">Cloud Infrastructure</span>
+                                <span class="font-medium text-teal-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">Containerization</span>
+                                <span class="font-medium text-teal-400">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium text-gray-300">Automation</span>
+                                <span class="font-medium text-teal-400">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-gray-300 mb-4">Technologies</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-aws text-gray-300 mr-2"></i>
+                                <span>AWS</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-docker text-gray-300 mr-2"></i>
+                                <span>Docker</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-kubernetes text-gray-300 mr-2"></i>
+                                <span>Kubernetes</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-python text-gray-300 mr-2"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-git-alt text-gray-300 mr-2"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fas fa-terminal text-gray-300 mr-2"></i>
+                                <span>Terraform</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-jenkins text-gray-300 mr-2"></i>
+                                <span>Jenkins</span>
+                            </div>
+                            <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                                <i class="fab fa-linux text-gray-300 mr-2"></i>
+                                <span>Linux</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-    </footer>
-
-    <script src="js/script.js"></script>
-</body>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="gradient-text">My Projects</span>
+                </h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-teal-400 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Where creativity meets technology
+                </p>
+            </div>
+            
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="px-6 py-3 text-sm font-medium rounded-l-lg bg-indigo-600 text-white">
+                        All Projects
+                    </button>
+                    <button type="button" class="px-6 py-3 text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600">
+                        VFX
+                    </button>
+                    <button type="button" class="px-6 py-3 text-sm font-medium rounded-r-lg bg-gray-700 text-gray-300 hover:bg-gray-600">
+                        DevOps
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition duration-500">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 1" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-3 py-1 bg-indigo-600 rounded-full text-xs font-semibold">VFX</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cosmic Odyssey</h3>
+                        <p class="text-gray-300 mb-4">Feature film visual effects including space environments, alien creatures, and futuristic technology.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-700 rounded text-xs">Maya
 </html>
