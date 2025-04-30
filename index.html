@@ -6,6 +6,7 @@
     <title>Alex Alphonse | VFX Artist & DevOps Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;600&display=swap');
         
@@ -259,7 +260,7 @@
                             Specializing in lighting, compositing, and motion graphics. I've worked on feature films, commercials, and cg shows, bringing imaginative worlds to life through cutting-edge visual effects.
                         </p>
                     </div> 
-		    <div class="flex flex-wrap gap-2 mt-8">
+            <div class="flex flex-wrap gap-2 mt-8">
                         <div class="px-4 py-2 bg-gray-800 rounded-full flex items-center">
                             <i class="fas fa-award text-yellow-400 mr-2"></i>
                             <span>9+ Experience</span>
@@ -396,7 +397,7 @@
                                 <i class="fas fa-video text-gray-300 mr-2"></i>
                                 <span>Premiere Pro</span>
                             </div>
-			    <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
+                <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
                                 <i class="fas fa-video text-gray-300 mr-2"></i>
                                 <span>Davinci Resolve</span>
                             </div>
@@ -451,30 +452,7 @@
                                 <span class="font-medium text-teal-400">92%</span>
                             </div>
                             <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <span class="font-medium text-teal-400">90%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
                                 <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium text-gray-300">Containerization</span>
-                                <span class="font-medium text-teal-400">88%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-medium text-gray-300">Automation</span>
-                                <span class="font-medium text-teal-400">92%</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="skill-bar bg-teal-500 h-2.5 rounded-full" style="width: 92%"></div>
                             </div>
                         </div>
                     </div>
@@ -512,8 +490,8 @@
                             </div>
                             <div class="px-3 py-1 bg-gray-700 rounded-full text-sm flex items-center">
                                 <i class="fab fa-linux text-gray-300 mr-2"></i>
-				<span>Linux</span>
-		            </div>
+                <span>Linux</span>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -536,31 +514,139 @@
 
             <div class="flex justify-center mb-12">
                 <div class="inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" class="px-6 py-3 text-sm font-medium rounded-l-lg bg-indigo-600 text-white">
+                    <button type="button" class="px-6 py-3 text-sm font-medium rounded-l-lg bg-indigo-600 text-white project-filter-btn active" data-filter="all">
                         All Projects
                     </button>
-                    <button type="button" class="px-6 py-3 text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600">
+                    <button type="button" class="px-6 py-3 text-sm font-medium bg-gray-700 text-gray-300 hover:bg-gray-600 project-filter-btn" data-filter="vfx">
                         VFX
                     </button>
-                    <button type="button" class="px-6 py-3 text-sm font-medium rounded-r-lg bg-gray-700 text-gray-300 hover:bg-gray-600">
+                    <button type="button" class="px-6 py-3 text-sm font-medium rounded-r-lg bg-gray-700 text-gray-300 hover:bg-gray-600 project-filter-btn" data-filter="devops">
                         DevOps
                     </button>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition duration-500">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 1" class="w-full h-full object-cover transition duration-500 hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
-                        <div class="absolute bottom-4 left-4">
-                            <span class="px-3 py-1 bg-indigo-600 rounded-full text-xs font-semibold">VFX</span>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+                <!-- Projects will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">
+                    <span class="gradient-text">Get In Touch</span>
+                </h2>
+                <div class="section-divider-line"></div>
+                <p class="section-subtitle">
+                    Let's collaborate on something amazing
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="p-3 rounded-full bg-indigo-900 bg-opacity-50 mr-4">
+                                <i class="fas fa-envelope text-indigo-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-300">Email</h4>
+                                <a href="mailto:alex@example.com" class="text-gray-400 hover:text-white transition duration-300">alex@example.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="p-3 rounded-full bg-teal-900 bg-opacity-50 mr-4">
+                                <i class="fas fa-phone-alt text-teal-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-300">Phone</h4>
+                                <a href="tel:+1234567890" class="text-gray-400 hover:text-white transition duration-300">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="p-3 rounded-full bg-purple-900 bg-opacity-50 mr-4">
+                                <i class="fas fa-map-marker-alt text-purple-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-300">Location</h4>
+                                <p class="text-gray-400">Los Angeles, CA</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Cosmic Odyssey</h3>
-                        <p class="text-gray-300 mb-4">Feature film visual effects including space environments, alien creatures, and futuristic technology.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-gray-700 rounded text-xs">Maya
+                    
+                    <div class="mt-10">
+                        <h4 class="text-lg font-semibold text-gray-300 mb-4">Connect With Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-artstation"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-imdb"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" id="name" class="form-input" required>
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-input" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" rows="5" class="form-input" required></textarea>
+                        </div>
+                        <button type="submit" class="primary-btn w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold gradient-text">ALEX ALPHONSE</span>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    &copy; <span id="current-year"></span> All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
